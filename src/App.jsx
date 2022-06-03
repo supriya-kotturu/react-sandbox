@@ -1,11 +1,21 @@
 import { useState } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { useEffect } from 'react';
 
 function App() {
 	const [count, setCount] = useState(0);
 
-	return <div className='App'></div>;
+	useEffect(() => {
+		const timer = setInterval(() => {
+			console.log('Timer is ticking every 30000 milliseconds');
+		}, 30000);
+
+		return () => {
+			clearInterval(timer);
+		};
+	}, []);
+
+	return <div className='App'>Check the console for Timer</div>;
 }
 
 export default App;
