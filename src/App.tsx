@@ -1,9 +1,17 @@
-import { useState } from 'react';
-import logo from './logo.svg';
+import { useEffect } from 'react';
 import './App.css';
 
 function App() {
-	return <div className='App'></div>;
+	useEffect(() => {
+		const timer = setTimeout(() => {
+			console.log('timer in typescript');
+		}, 1000);
+
+		return () => {
+			clearTimeout(timer);
+		};
+	}, []);
+	return <div className='App'>Check console to view the timer</div>;
 }
 
 export default App;
