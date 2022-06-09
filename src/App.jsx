@@ -1,9 +1,14 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import './App.css';
 import { useEffect } from 'react';
 
 function App() {
-	const [count, setCount] = useState(0);
+	let userName = '';
+	const userNameRef = useRef('');
+	const handleClick = () => {
+		userName = userNameRef.current.value;
+		console.log(userNameRef.current?.value);
+	};
 
 	useEffect(() => {
 		const timer = setTimeout(() => {
@@ -23,7 +28,15 @@ function App() {
 		};
 	}, []);
 
-	return <div className='App'>Check the console for Timer</div>;
+	return (
+		<div className='App'>
+			<input type='text' ref={userNameRef} />
+			<br />
+			<button onClick={handleClick}>get name</button>
+			<br />
+			Check the console for Timer and user name
+		</div>
+	);
 }
 
 export default App;
