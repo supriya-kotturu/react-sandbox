@@ -8,7 +8,7 @@ export const UseStateHook = () => {
 		<>
 			{users?.map((user) => (
 				<p>
-					Hi! I'm {user.name}. I work as a freelancer. Here's my contact{' '}
+					Hi! I'm {user.name}. I work as a freelancer. Here's my contact
 					{user.email}, {user.phone}
 				</p>
 			))}
